@@ -143,7 +143,7 @@ class DatabaseSeeder extends Seeder
 
         $laconfig = new LAConfigs;
         $laconfig->key = "skin";
-        $laconfig->value = "skin-white";
+        $laconfig->value = "skin-blu";
         $laconfig->save();
 
         $laconfig = new LAConfigs;
@@ -166,5 +166,18 @@ class DatabaseSeeder extends Seeder
 
         /* ================ Call Other Seeders ================ */
 
+
+        $this->call(DepartmentsTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(EmployeesTableSeeder::class);
+        $this->call(OrganizationsTableSeeder::class);
+        $this->call(ContactsTableSeeder::class);
+
+        $this->call(ProjectsTableSeeder::class);
+
+        $this->call(LeadsTableSeeder::class);
+        $this->call(OpportunitiesTableSeeder::class);
+
+        $this->call(TicketsTableSeeder::class);
     }
 }
