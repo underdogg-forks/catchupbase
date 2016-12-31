@@ -201,8 +201,9 @@ class TicketsController extends Controller
     {
         $module = Module::get('Tickets');
         $listing_cols = Module::getListingColumns('Tickets');
-        
+
         $values = DB::table('tickets')->select($listing_cols)->whereNull('deleted_at');
+
         $out = Datatables::of($values)->make();
         $data = $out->getData();
         
