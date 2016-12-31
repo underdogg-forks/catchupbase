@@ -76,6 +76,12 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
     Route::resource(config('laraadmin.adminRoute') . '/organizations', 'LA\OrganizationsController');
     Route::get(config('laraadmin.adminRoute') . '/organization_dt_ajax', 'LA\OrganizationsController@dtajax');
 
+
+    /* ================== Organizations ================== */
+    Route::resource(config('laraadmin.adminRoute') . '/contacts', 'LA\ContactsController');
+    Route::get(config('laraadmin.adminRoute') . '/contact_dt_ajax', 'LA\ContactsController@dtajax');
+
+
     /* ================== Backups ================== */
     Route::resource(config('laraadmin.adminRoute') . '/backups', 'LA\BackupsController');
     Route::get(config('laraadmin.adminRoute') . '/backup_dt_ajax', 'LA\BackupsController@dtajax');

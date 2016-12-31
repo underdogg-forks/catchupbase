@@ -47,7 +47,7 @@ class OpportunitiesController extends Controller
     }
 
     /**
-     * Show the form for creating a new organization.
+     * Show the form for creating a new opportunity.
      *
      * @return \Illuminate\Http\Response
      */
@@ -57,7 +57,7 @@ class OpportunitiesController extends Controller
     }
 
     /**
-     * Store a newly created organization in database.
+     * Store a newly created opportunity in database.
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -84,7 +84,7 @@ class OpportunitiesController extends Controller
     }
 
     /**
-     * Display the specified organization.
+     * Display the specified opportunity.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -93,21 +93,21 @@ class OpportunitiesController extends Controller
     {
         if (Module::hasAccess("Opportunities", "view")) {
 
-            $ticket = Opportunity::find($id);
-            if (isset($ticket->id)) {
+            $opportunity = Opportunity::find($id);
+            if (isset($opportunity->id)) {
                 $module = Module::get('Opportunities');
-                $module->row = $ticket;
+                $module->row = $opportunity;
 
                 return view('la.opportunities.show', [
                     'module' => $module,
                     'view_col' => $module->view_col,
                     'no_header' => true,
                     'no_padding' => "no-padding"
-                ])->with('ticket', $ticket);
+                ])->with('opportunity', $opportunity);
             } else {
                 return view('errors.404', [
                     'record_id' => $id,
-                    'record_name' => ucfirst("ticket"),
+                    'record_name' => ucfirst("opportunity"),
                 ]);
             }
         } else {
@@ -116,7 +116,7 @@ class OpportunitiesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified organization.
+     * Show the form for editing the specified opportunity.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -124,20 +124,20 @@ class OpportunitiesController extends Controller
     public function edit($id)
     {
         if (Module::hasAccess("Opportunities", "edit")) {
-            $ticket = Opportunity::find($id);
-            if (isset($ticket->id)) {
+            $opportunity = Opportunity::find($id);
+            if (isset($opportunity->id)) {
                 $module = Module::get('Opportunities');
 
-                $module->row = $ticket;
+                $module->row = $opportunity;
 
-                return view('la.organizations.edit', [
+                return view('la.opportunities.edit', [
                     'module' => $module,
                     'view_col' => $module->view_col,
-                ])->with('ticket', $ticket);
+                ])->with('opportunity', $opportunity);
             } else {
                 return view('errors.404', [
                     'record_id' => $id,
-                    'record_name' => ucfirst("organization"),
+                    'record_name' => ucfirst("opportunity"),
                 ]);
             }
         } else {
@@ -146,7 +146,7 @@ class OpportunitiesController extends Controller
     }
 
     /**
-     * Update the specified organization in storage.
+     * Update the specified opportunity in storage.
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
@@ -174,7 +174,7 @@ class OpportunitiesController extends Controller
     }
 
     /**
-     * Remove the specified organization from storage.
+     * Remove the specified opportunity from storage.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -226,7 +226,7 @@ class OpportunitiesController extends Controller
                     $data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
                 }
                 if ($col == $module->view_col) {
-                    $data->data[$i][$j] = '<a href="' . url(config('laraadmin.adminRoute') . '/organizations/' . $data->data[$i][0]) . '">' . $data->data[$i][$j] . '</a>';
+                    $data->data[$i][$j] = '<a href="' . url(config('laraadmin.adminRoute') . '/opportunities/' . $data->data[$i][0]) . '">' . $data->data[$i][$j] . '</a>';
                 }
                 // else if($col == "author") {
                 //    $data->data[$i][$j];

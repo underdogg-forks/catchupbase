@@ -2,6 +2,9 @@
 /**
  * Migration generated using LaraAdmin
  * Help: http://laraadmin.com
+ * LaraAdmin is open-sourced software licensed under the MIT license.
+ * Developed by: Dwij IT Solutions
+ * Developer Website: http://dwijitsolutions.com
  */
 
 use Illuminate\Database\Schema\Blueprint;
@@ -11,13 +14,13 @@ use Dwij\Laraadmin\Models\Module;
 class CreateContactsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Migration generate Module Table Schema by LaraAdmin
      *
      * @return void
      */
     public function up()
     {
-        Module::generate("Contacts", 'contacts', 'first_name', 'fa-user', [
+        Module::generate("Contacts", 'contacts', 'last_name', 'fa-user', [
             [
                 "colname" => "designation",
                 "label" => "Designation",
@@ -99,7 +102,7 @@ class CreateContactsTable extends Migration
                 "minlength" => 0,
                 "maxlength" => 0,
                 "required" => false,
-                "listing_col" => true,
+                "listing_col" => false,
                 "popup_vals" => "@industry_types",
             ], [
                 "colname" => "department",
@@ -252,6 +255,7 @@ class CreateContactsTable extends Migration
             "popup_vals" => ["Employee", "Client"]
         ]
         # Format Details: Check http://laraadmin.com/docs/migrations_cruds#schema-ui-types
+        
         colname: Database column name. lowercase, words concatenated by underscore (_)
         label: Label of Column e.g. Name, Cost, Is Public
         field_type: It defines type of Column in more General way.
@@ -264,7 +268,7 @@ class CreateContactsTable extends Migration
         popup_vals: These are values for MultiSelect, TagInput and Radio Columns. Either connecting @tables or to list []
         */
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -272,7 +276,7 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
-        if (Schema::hasTable('contacts')) {
+        if(Schema::hasTable('contacts')) {
             Schema::drop('contacts');
         }
     }
