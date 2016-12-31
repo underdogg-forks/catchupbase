@@ -112,8 +112,8 @@
 <script>
     $(function () {
         $("#example1").DataTable({
-            processing: true,
-            serverSide: true,
+            pageLength: '25',
+
             ajax: "{{ url(config('laraadmin.adminRoute') . '/lead_dt_ajax') }}",
             language: {
                 lengthMenu: "_MENU_",

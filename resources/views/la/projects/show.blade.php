@@ -287,6 +287,8 @@
         var dt_tickets_project = $("#dt-tickets-project").DataTable({
             processing: true,
             serverSide: true,
+            pageLength: '25',
+
             ajax: {
                 "url": "{{ url(config('laraadmin.adminRoute') . '/ticket_dt_ajax') }}",
                 "data": function (data_custom) {

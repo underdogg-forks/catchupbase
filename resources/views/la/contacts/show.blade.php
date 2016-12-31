@@ -302,6 +302,8 @@
         var dt_contact_opportunities = $("#dt-contact-opportunities").DataTable({
             processing: true,
             serverSide: true,
+            pageLength: '25',
+
             ajax: {
                 "url": "{{ url(config('laraadmin.adminRoute') . '/opportunity_dt_ajax') }}",
                 "data": function (data_custom) {
