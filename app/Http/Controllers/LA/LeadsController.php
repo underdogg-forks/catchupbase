@@ -35,6 +35,8 @@ class LeadsController extends Controller
     {
         $module = Module::get('Leads');
 
+        $cols = Module::getListingColumns('Leads');
+
         if (Module::hasAccess($module->id)) {
             return View('la.leads.index', [
                 'show_actions' => $this->show_action,
@@ -239,7 +241,7 @@ class LeadsController extends Controller
                     $output .= '<a href="' . url(config('laraadmin.adminRoute') . '/leads/' . $data->data[$i][0] . '/edit') . '" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
                 }
 
-                if (Module::hasAccess("Lead", "delete")) {
+                if (Module::hasAccess("Leads", "delete")) {
                     $output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.leads.destroy', $data->data[$i][0]], 'method' => 'delete', 'style' => 'display:inline']);
                     $output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
                     $output .= Form::close();
