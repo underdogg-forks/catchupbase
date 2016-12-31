@@ -12,18 +12,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Opportunity extends Model
 {
     use SoftDeletes;
-	
-	protected $table = 'opportunities';
-	
-	protected $hidden = [
-        
+
+    protected $table = 'opportunities';
+
+    protected $hidden = [
+
     ];
 
-	protected $guarded = [];
+    protected $guarded = [];
 
-	protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at'];
 
-	/**
+    /**
      * Get the Employee assigned to this Opportunity
      */
     public function assigned_to_emp()
@@ -31,7 +31,7 @@ class Opportunity extends Model
         return $this->belongsTo('App\Models\Employee', 'assigned_to', 'id');
     }
 
-	/**
+    /**
      * Get the Organization assigned to this Opportunity
      */
     public function organization_info()
@@ -39,7 +39,7 @@ class Opportunity extends Model
         return $this->belongsTo('App\Models\Organization', 'organization', 'id');
     }
 
-	/**
+    /**
      * Get the Contact assigned to this Opportunity
      */
     public function contact_info()

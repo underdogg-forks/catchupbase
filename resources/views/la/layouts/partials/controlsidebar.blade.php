@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
                         Report panel usage
-                        <input type="checkbox" class="pull-right" checked />
+                        <input type="checkbox" class="pull-right" checked/>
                     </label>
                     <p>
                         Some information about this general settings option

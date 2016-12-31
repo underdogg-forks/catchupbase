@@ -6,29 +6,30 @@
     <meta name="description" content="{{ LAConfigs::getByKey('site_description') }}">
     <meta name="author" content="Dwij IT Solutions">
 
-    <meta property="og:title" content="{{ LAConfigs::getByKey('sitename') }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="{{ LAConfigs::getByKey('site_description') }}" />
-    
-    <meta property="og:url" content="http://laraadmin.com/" />
-    <meta property="og:sitename" content="laraAdmin" />
-	<meta property="og:image" content="http://demo.adminlte.acacha.org/img/LaraAdmin-600x600.jpg" />
-    
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@laraadmin" />
-    <meta name="twitter:creator" content="@laraadmin" />
-    
+    <meta property="og:title" content="{{ LAConfigs::getByKey('sitename') }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="{{ LAConfigs::getByKey('site_description') }}"/>
+
+    <meta property="og:url" content="http://laraadmin.com/"/>
+    <meta property="og:sitename" content="laraAdmin"/>
+    <meta property="og:image" content="http://demo.adminlte.acacha.org/img/LaraAdmin-600x600.jpg"/>
+
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@laraadmin"/>
+    <meta name="twitter:creator" content="@laraadmin"/>
+
     <title>{{ LAConfigs::getByKey('sitename') }}</title>
-    
+
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('/la-assets/css/bootstrap.css') }}" rel="stylesheet">
 
-	<link href="{{ asset('la-assets/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-    
+    <link href="{{ asset('la-assets/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
+
     <!-- Custom styles for this template -->
     <link href="{{ asset('/la-assets/css/main.css') }}" rel="stylesheet">
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet'
+          type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
 
     <script src="{{ asset('/la-assets/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
@@ -74,7 +75,8 @@
     <div class="container">
         <div class="row centered">
             <div class="col-lg-12">
-                <h1>{{ LAConfigs::getByKey('sitename_part1') }} <b><a>{{ LAConfigs::getByKey('sitename_part2') }}</a></b></h1>
+                <h1>{{ LAConfigs::getByKey('sitename_part1') }}
+                    <b><a>{{ LAConfigs::getByKey('sitename_part2') }}</a></b></h1>
                 <h3>{{ LAConfigs::getByKey('site_description') }}</h3>
                 <h3><a href="{{ url('/login') }}" class="btn btn-lg btn-success">Get Started!</a></h3><br>
             </div>
@@ -135,22 +137,37 @@
             </div>
 
             <div class="col-lg-7">
-				<h3 class="feature-title">What is LaraAdmin ?</h3><br>
-				<ol class="features">
-					<li><strong>CMS</strong> (Content Management System) &#8211; Manages Modules &amp; their Data</li>
-					<li>Backend <strong>Admin Panel</strong> &#8211; Data can be used in front end applications with ease.</li>
-					<li>A probable <strong>CRM</strong> System &#8211; Can be evolved into a CRM system like <a target="_blank" href="https://www.sugarcrm.com">SugarCRM</a></li>
-				</ol><br>
-
-				<h3 class="feature-title">Why LaraAdmin ?</h3><br>
+                <h3 class="feature-title">What is LaraAdmin ?</h3><br>
                 <ol class="features">
-					<li><strong>Philosophy:</strong> Inspired by SugarCRM &amp; based on Advanced <strong>Data Types</strong> like Image, HTML, File, Dropdown, TagInput which makes developers job easy. See more in <a target="_blank" href="http://laraadmin.com/features">features</a></li>
-					<li>Superior <strong>CRUD generation</strong> for Modules which generates Migration, Controller, Model and Views with single artisan command and integrates with Routes as as well.</li>
-					<li><strong>Form Maker</strong> helper is provided for generating entire form with single function call with module name as single parameter. It also gives you freedom to customise form for every field by providing method to generate single field with parameters for customisations.</li>
-					<li><b>Upload Manager </b>manages project files &amp; images which are integrated with your Module fields.</li>
-					<li><strong>Menu Manager</strong> creates menu with Modules &amp; Custom Links likes WordPress</li>
-					<li><strong>Online Code Editor</strong> allows developers to customise the generated Module Views &amp; Files.</li>
-				</ol>
+                    <li><strong>CMS</strong> (Content Management System) &#8211; Manages Modules &amp; their Data</li>
+                    <li>Backend <strong>Admin Panel</strong> &#8211; Data can be used in front end applications with
+                        ease.
+                    </li>
+                    <li>A probable <strong>CRM</strong> System &#8211; Can be evolved into a CRM system like <a
+                                target="_blank" href="https://www.sugarcrm.com">SugarCRM</a></li>
+                </ol>
+                <br>
+
+                <h3 class="feature-title">Why LaraAdmin ?</h3><br>
+                <ol class="features">
+                    <li><strong>Philosophy:</strong> Inspired by SugarCRM &amp; based on Advanced <strong>Data
+                            Types</strong> like Image, HTML, File, Dropdown, TagInput which makes developers job easy.
+                        See more in <a target="_blank" href="http://laraadmin.com/features">features</a></li>
+                    <li>Superior <strong>CRUD generation</strong> for Modules which generates Migration, Controller,
+                        Model and Views with single artisan command and integrates with Routes as as well.
+                    </li>
+                    <li><strong>Form Maker</strong> helper is provided for generating entire form with single function
+                        call with module name as single parameter. It also gives you freedom to customise form for every
+                        field by providing method to generate single field with parameters for customisations.
+                    </li>
+                    <li><b>Upload Manager </b>manages project files &amp; images which are integrated with your Module
+                        fields.
+                    </li>
+                    <li><strong>Menu Manager</strong> creates menu with Modules &amp; Custom Links likes WordPress</li>
+                    <li><strong>Online Code Editor</strong> allows developers to customise the generated Module Views
+                        &amp; Files.
+                    </li>
+                </ol>
             </div>
         </div>
     </div><!--/ .container -->
@@ -162,33 +179,34 @@
         <div class="col-lg-5">
             <h3>Contact Us</h3><br>
             <p>
-				Dwij IT Solutions,<br/>
-				Web Development Company in Pune,<br/>
+                Dwij IT Solutions,<br/>
+                Web Development Company in Pune,<br/>
                 B4, Patang Plaza Phase 5,<br/>
                 Opp. PICT College,<br/>
                 Katraj, Pune, India - 411046
             </p>
-			<div class="contact-link"><i class="fa fa-envelope-o"></i> <a href="mailto:hello@laraadmin.com">hello@laraadmin.com</a></div>
-			<div class="contact-link"><i class="fa fa-cube"></i> <a href="http://laraadmin.com">laraadmin.com</a></div>
-			<div class="contact-link"><i class="fa fa-building"></i> <a href="http://dwijitsolutions.com">dwijitsolutions.com</a></div>
+            <div class="contact-link"><i class="fa fa-envelope-o"></i> <a
+                        href="mailto:hello@laraadmin.com">hello@laraadmin.com</a></div>
+            <div class="contact-link"><i class="fa fa-cube"></i> <a href="http://laraadmin.com">laraadmin.com</a></div>
+            <div class="contact-link"><i class="fa fa-building"></i> <a href="http://dwijitsolutions.com">dwijitsolutions.com</a>
+            </div>
         </div>
 
         <div class="col-lg-7">
             <h3>Drop Us A Line</h3>
             <br>
-            <form role="form" action="{{ url('store_lead_form_1') }}" method="POST" enctype="plain">
-                {{ csrf_field() }}
-                 <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Your Name" required>
+            <form role="form" action="#" method="post" enctype="plain">
+                <div class="form-group">
+                    <label for="name1">Your Name</label>
+                    <input type="name" name="Name" class="form-control" id="name1" placeholder="Your Name">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" name="email_primary" class="form-control" id="email_primary" placeholder="Enter email" required>
+                    <label for="email1">Email address</label>
+                    <input type="email" name="Mail" class="form-control" id="email1" placeholder="Enter email">
                 </div>
                 <div class="form-group">
                     <label>Your Text</label>
-                    <textarea class="form-control" name="description" rows="3"></textarea>
+                    <textarea class="form-control" name="Message" rows="3"></textarea>
                 </div>
                 <br>
                 <button type="submit" class="btn btn-large btn-success">SUBMIT</button>

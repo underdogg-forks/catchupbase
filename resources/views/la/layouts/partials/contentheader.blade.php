@@ -5,15 +5,16 @@
         <small>@yield('contentheader_description')</small>
     </h1>
     @hasSection('headerElems')
-        <span class="headerElems">
+    <span class="headerElems">
         @yield('headerElems')
         </span>
-    @else 
+    @else
         @hasSection('section')
         <ol class="breadcrumb">
             <li><a href="@yield('section_url')"><i class="fa fa-dashboard"></i> @yield('section')</a></li>
-            @hasSection('sub_section')<li class="active"> @yield('sub_section') </li>@endif
+            @hasSection('sub_section')
+            <li class="active"> @yield('sub_section') </li>@endif
         </ol>
-        @endif
+    @endif
     @endif
 </section>

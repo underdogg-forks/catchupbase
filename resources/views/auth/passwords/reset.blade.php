@@ -9,7 +9,8 @@
     <body class="login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/home') }}"><b>{{ LAConfigs::getByKey('sitename_part1') }} </b>{{ LAConfigs::getByKey('sitename_part2') }}</a>
+            <a href="{{ url('/home') }}"><b>{{ LAConfigs::getByKey('sitename_part1') }} </b>{{ LAConfigs::getByKey('sitename_part2') }}
+            </a>
         </div><!-- /.login-logo -->
 
         @if (session('status'))
@@ -35,7 +36,8 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="token" value="{{ $token }}">
                 <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}"/>
+                    <input type="email" class="form-control" placeholder="Email" name="email"
+                           value="{{ old('email') }}"/>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
 

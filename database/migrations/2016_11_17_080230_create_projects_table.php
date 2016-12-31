@@ -79,7 +79,7 @@ class CreateProjectsTable extends Migration
                 "maxlength" => 0,
                 "required" => false,
                 "listing_col" => true,
-                "popup_vals" => ["prospecting","initiated","in progress","waiting for feedback","on hold","completed","delivered","archived"],
+                "popup_vals" => ["prospecting", "initiated", "in progress", "waiting for feedback", "on hold", "completed", "delivered", "archived"],
             ], [
                 "colname" => "type",
                 "label" => "Type",
@@ -132,7 +132,7 @@ class CreateProjectsTable extends Migration
                 "maxlength" => 0,
                 "required" => false,
                 "listing_col" => false,
-                "popup_vals" => ["low","normal","high"],
+                "popup_vals" => ["low", "normal", "high"],
             ], [
                 "colname" => "description",
                 "label" => "Description",
@@ -145,7 +145,7 @@ class CreateProjectsTable extends Migration
                 "listing_col" => false
             ]
         ]);
-        
+
         /*
         Module::generate("Module_Name", "Table_Name", "view_column_name" "Fields_Array");
 
