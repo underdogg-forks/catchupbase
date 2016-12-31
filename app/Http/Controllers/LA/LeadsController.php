@@ -49,7 +49,7 @@ class LeadsController extends Controller
     }
 
     /**
-     * Show the form for creating a new organization.
+     * Show the form for creating a new lead.
      *
      * @return \Illuminate\Http\Response
      */
@@ -59,7 +59,7 @@ class LeadsController extends Controller
     }
 
     /**
-     * Store a newly created organization in database.
+     * Store a newly created lead in database.
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -86,7 +86,7 @@ class LeadsController extends Controller
     }
 
     /**
-     * Display the specified organization.
+     * Display the specified lead.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -95,21 +95,21 @@ class LeadsController extends Controller
     {
         if (Module::hasAccess("Leads", "view")) {
 
-            $ticket = Lead::find($id);
-            if (isset($ticket->id)) {
+            $lead = Lead::find($id);
+            if (isset($lead->id)) {
                 $module = Module::get('Leads');
-                $module->row = $ticket;
+                $module->row = $lead;
 
                 return view('la.leads.show', [
                     'module' => $module,
                     'view_col' => $module->view_col,
                     'no_header' => true,
                     'no_padding' => "no-padding"
-                ])->with('ticket', $ticket);
+                ])->with('lead', $lead);
             } else {
                 return view('errors.404', [
                     'record_id' => $id,
-                    'record_name' => ucfirst("ticket"),
+                    'record_name' => ucfirst("lead"),
                 ]);
             }
         } else {
@@ -118,7 +118,7 @@ class LeadsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified organization.
+     * Show the form for editing the specified lead.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -126,20 +126,20 @@ class LeadsController extends Controller
     public function edit($id)
     {
         if (Module::hasAccess("Leads", "edit")) {
-            $ticket = Lead::find($id);
-            if (isset($ticket->id)) {
+            $lead = Lead::find($id);
+            if (isset($lead->id)) {
                 $module = Module::get('Leads');
 
-                $module->row = $ticket;
+                $module->row = $lead;
 
-                return view('la.organizations.edit', [
+                return view('la.leads.edit', [
                     'module' => $module,
                     'view_col' => $module->view_col,
-                ])->with('ticket', $ticket);
+                ])->with('lead', $lead);
             } else {
                 return view('errors.404', [
                     'record_id' => $id,
-                    'record_name' => ucfirst("organization"),
+                    'record_name' => ucfirst("lead"),
                 ]);
             }
         } else {
@@ -148,7 +148,7 @@ class LeadsController extends Controller
     }
 
     /**
-     * Update the specified organization in storage.
+     * Update the specified lead in storage.
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
@@ -176,7 +176,7 @@ class LeadsController extends Controller
     }
 
     /**
-     * Remove the specified organization from storage.
+     * Remove the specified lead from storage.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -228,7 +228,7 @@ class LeadsController extends Controller
                     $data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
                 }
                 if ($col == $module->view_col) {
-                    $data->data[$i][$j] = '<a href="' . url(config('laraadmin.adminRoute') . '/organizations/' . $data->data[$i][0]) . '">' . $data->data[$i][$j] . '</a>';
+                    $data->data[$i][$j] = '<a href="' . url(config('laraadmin.adminRoute') . '/leads/' . $data->data[$i][0]) . '">' . $data->data[$i][$j] . '</a>';
                 }
                 // else if($col == "author") {
                 //    $data->data[$i][$j];
