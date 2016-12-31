@@ -177,8 +177,17 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+
+
         Dwij\Laraadmin\LAProvider::class,
-        Elasticquent\ElasticquentServiceProvider::class
+        Elasticquent\ElasticquentServiceProvider::class,
+
+        Orangehill\Iseed\IseedServiceProvider::class,
+
+
+
+
     ],
 
     /*
