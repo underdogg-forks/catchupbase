@@ -170,7 +170,7 @@ class DatabaseSeeder extends Seeder
         $this->call(DepartmentsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(EmployeesTableSeeder::class);
-        $this->call(OrganizationsTableSeeder::class);
+        $this->call(RelationsTableSeeder::class);
         $this->call(ContactsTableSeeder::class);
 
         $this->call(ProjectsTableSeeder::class);

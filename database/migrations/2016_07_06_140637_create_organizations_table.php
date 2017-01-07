@@ -11,7 +11,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Dwij\Laraadmin\Models\Module;
 
-class CreateOrganizationsTable extends Migration
+class CreateRelationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -20,7 +20,7 @@ class CreateOrganizationsTable extends Migration
      */
     public function up()
     {
-        Module::generate("Organizations", 'organizations', 'name', 'fa-university', [
+        Module::generate("Relations", 'relations', 'name', 'fa-university', [
             [
                 "colname" => "name",
                 "label" => "Name",
@@ -172,8 +172,8 @@ class CreateOrganizationsTable extends Migration
      */
     public function down()
     {
-        if (Schema::hasTable('organizations')) {
-            Schema::drop('organizations');
+        if (Schema::hasTable('relations')) {
+            Schema::drop('relations');
         }
     }
 }

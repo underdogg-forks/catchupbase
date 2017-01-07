@@ -63,8 +63,8 @@ class CreateContactsTable extends Migration
                 "required" => false,
                 "listing_col" => false
             ], [
-                "colname" => "organization",
-                "label" => "Organization Name  ",
+                "colname" => "relation",
+                "label" => "Relation Name  ",
                 "field_type" => "Dropdown",
                 "unique" => false,
                 "defaultvalue" => "",
@@ -72,7 +72,7 @@ class CreateContactsTable extends Migration
                 "maxlength" => 0,
                 "required" => false,
                 "listing_col" => true,
-                "popup_vals" => "@organizations",
+                "popup_vals" => "@relations",
             ], [
                 "colname" => "phone_primary",
                 "label" => "Primary Phone",

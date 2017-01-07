@@ -32,10 +32,10 @@ class Project extends Model
     }
 
     /**
-     * Get the Organization belongs to this Project
+     * Get the Relation belongs to this Project
      */
-    public function organization_info()
+    public function relation_info()
     {
-        return $this->belongsTo('App\Models\Organization', 'organization', 'id');
+        return $this->belongsTo('App\Models\Relation', 'relation_id', 'id');
     }
 }

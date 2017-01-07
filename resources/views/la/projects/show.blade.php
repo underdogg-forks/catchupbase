@@ -132,7 +132,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">@la_display($module, 'type')</div>
-                                <div class="col-md-6">@la_display($module, 'organization')</div>
+                                <div class="col-md-6">@la_display($module, 'relation_id')</div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">@la_display($module, 'target_budget')</div>

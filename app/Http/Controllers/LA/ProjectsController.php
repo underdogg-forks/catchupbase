@@ -20,7 +20,7 @@ use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
-use App\Models\Organization;
+use App\Models\Relation;
 
 class ProjectsController extends Controller
 {
@@ -93,7 +93,7 @@ class ProjectsController extends Controller
     {
         if (Module::hasAccess("Projects", "view")) {
 
-            $project = Organization::find($id);
+            $project = Relation::find($id);
             if (isset($project->id)) {
                 $module = Module::get('Projects');
                 $module->row = $project;
@@ -124,7 +124,7 @@ class ProjectsController extends Controller
     public function edit($id)
     {
         if (Module::hasAccess("Projects", "edit")) {
-            $project = Organization::find($id);
+            $project = Relation::find($id);
             if (isset($project->id)) {
                 $module = Module::get('Projects');
 
@@ -182,7 +182,7 @@ class ProjectsController extends Controller
     public function destroy($id)
     {
         if (Module::hasAccess("Projects", "delete")) {
-            Organization::find($id)->delete();
+            Relation::find($id)->delete();
 
             // Redirecting to index() method
             return redirect()->route(config('laraadmin.adminRoute') . '.projects.index');

@@ -32,7 +32,7 @@
                     {!! Form::model($opportunity, ['route' => [config('laraadmin.adminRoute') . '.opportunities.update', $opportunity->id ], 'method'=>'PUT', 'id' => 'opportunity-edit-form']) !!}
                     <div class="row">
                         <div class="col-md-6">@la_input($module, 'name')</div>
-                        <div class="col-md-6">@la_input($module, 'organization')</div>
+                        <div class="col-md-6">@la_input($module, 'relation_id')</div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">@la_input($module, 'contact')</div>

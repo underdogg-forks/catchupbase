@@ -111,7 +111,7 @@
 						@la_display($module, 'first_name')
 						@la_display($module, 'last_name')
 						@la_display($module, 'title')
-						@la_display($module, 'organization')
+						@la_display($module, 'relation_id')
 						@la_display($module, 'phone_primary')
 						@la_display($module, 'email')
 						@la_display($module, 'lead_source')

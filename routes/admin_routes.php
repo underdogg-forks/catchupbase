@@ -72,15 +72,15 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
     Route::get(config('laraadmin.adminRoute') . '/employee_dt_ajax', 'LA\EmployeesController@dtajax');
     Route::post(config('laraadmin.adminRoute') . '/change_password/{id}', 'LA\EmployeesController@change_password');
 
-    /* ================== Organizations ================== */
-    Route::resource(config('laraadmin.adminRoute') . '/organizations', 'LA\OrganizationsController');
-    Route::get(config('laraadmin.adminRoute') . '/organization_dt_ajax', 'LA\OrganizationsController@dtajax');
+    /* ================== Relations ================== */
+    Route::resource(config('laraadmin.adminRoute') . '/relations', 'LA\RelationsController');
+    Route::get(config('laraadmin.adminRoute') . '/relation_dt_ajax', 'LA\RelationsController@dtajax');
 
     /* ================== Contacts ================== */
     Route::resource(config('laraadmin.adminRoute') . '/contacts', 'LA\ContactsController');
     Route::get(config('laraadmin.adminRoute') . '/contact_dt_ajax', 'LA\ContactsController@dtajax');
 
-    /* ================== Organizations ================== */
+    /* ================== Relations ================== */
     Route::resource(config('laraadmin.adminRoute') . '/projects', 'LA\ProjectsController');
     Route::get(config('laraadmin.adminRoute') . '/project_dt_ajax', 'LA\ProjectsController@dtajax');
 

@@ -60,7 +60,7 @@
                     
                     {{--
                     @la_input($module, 'title')
-					@la_input($module, 'organization')
+					@la_input($module, 'relation_id')
 					@la_input($module, 'contact')
 					@la_input($module, 'assigned_to')
 					@la_input($module, 'project')

@@ -32,11 +32,11 @@ class Opportunity extends Model
     }
 
     /**
-     * Get the Organization assigned to this Opportunity
+     * Get the Relation assigned to this Opportunity
      */
-    public function organization_info()
+    public function relation_info()
     {
-        return $this->belongsTo('App\Models\Organization', 'organization', 'id');
+        return $this->belongsTo('App\Models\Relation', 'relation_id', 'id');
     }
 
     /**

@@ -45,7 +45,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">@la_input($module, 'type')</div>
-                        <div class="col-md-6">@la_input($module, 'organization')</div>
+                        <div class="col-md-6">@la_input($module, 'relation_id')</div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">@la_input($module, 'target_budget')</div>

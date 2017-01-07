@@ -22,7 +22,7 @@ Route::post('store_lead_form_1', 'LA\LeadsController@store_lead_form_1');
 
 Route::get('search/{query}', function ($query) {
     echo "\n<br>Query: " . $query . "\n\n<br><br><br>";
-    $orgs = \App\Models\Organization::search($query);
+    $orgs = \App\Models\Relation::search($query);
     if ($orgs->totalHits()) {
         foreach ($orgs as $org) {
             echo $org->name . "(" . $org->documentScore() . ")<br>\n";

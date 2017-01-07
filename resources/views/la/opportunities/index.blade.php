@@ -60,7 +60,7 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-6">@la_input($module, 'name')</div>
-                            <div class="col-md-6">@la_input($module, 'organization')</div>
+                            <div class="col-md-6">@la_input($module, 'relation_id')</div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">@la_input($module, 'contact')</div>

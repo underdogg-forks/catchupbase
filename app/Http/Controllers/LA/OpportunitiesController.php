@@ -27,7 +27,7 @@ class OpportunitiesController extends Controller
     public $show_action = true;
 
     /**
-     * Display a listing of the Organizations.
+     * Display a listing of the Relations.
      *
      * @return \Illuminate\Http\Response
      */
@@ -182,7 +182,7 @@ class OpportunitiesController extends Controller
     public function destroy($id)
     {
         if (Module::hasAccess("Opportunities", "delete")) {
-            Organization::find($id)->delete();
+            Relation::find($id)->delete();
 
             // Redirecting to index() method
             return redirect()->route(config('laraadmin.adminRoute') . '.opportunities.index');
@@ -239,7 +239,7 @@ class OpportunitiesController extends Controller
                     $output .= '<a href="' . url(config('laraadmin.adminRoute') . '/opportunities/' . $data->data[$i][0] . '/edit') . '" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
                 }
 
-                if (Module::hasAccess("Organizations", "delete")) {
+                if (Module::hasAccess("Relations", "delete")) {
                     $output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.opportunities.destroy', $data->data[$i][0]], 'method' => 'delete', 'style' => 'display:inline']);
                     $output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
                     $output .= Form::close();

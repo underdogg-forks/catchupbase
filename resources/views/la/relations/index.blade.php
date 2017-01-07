@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
-@section("contentheader_title", "Organizations")
-@section("contentheader_description", "Organizations listing")
-@section("section", "Organizations")
+@section("contentheader_title", "Relations")
+@section("contentheader_description", "Relations listing")
+@section("section", "Relations")
 @section("sub_section", "Listing")
-@section("htmlheader_title", "Organizations Listing")
+@section("htmlheader_title", "Relations Listing")
 
 @section("headerElems")
-    @la_access("Organizations", "create")
-    <button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Organization
+    @la_access("Relations", "create")
+    <button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Relation
     </button>
     @endla_access
 @endsection
@@ -46,16 +46,16 @@
         </div>
     </div>
 
-    @la_access("Organizations", "create")
+    @la_access("Relations", "create")
     <div class="modal fade" id="AddModal" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Add Organization</h4>
+                    <h4 class="modal-title" id="myModalLabel">Add Relation</h4>
                 </div>
-                {!! Form::open(['action' => 'LA\OrganizationsController@store', 'id' => 'organization-add-form']) !!}
+                {!! Form::open(['action' => 'LA\RelationsController@store', 'id' => 'relation-add-form']) !!}
                 <div class="modal-body">
                     <div class="box-body">
                         @la_form($module)
@@ -100,7 +100,7 @@
             serverSide: true,
             pageLength: '25',
 
-            ajax: "{{ url(config('laraadmin.adminRoute') . '/organization_dt_ajax') }}",
+            ajax: "{{ url(config('laraadmin.adminRoute') . '/relation_dt_ajax') }}",
             language: {
                 lengthMenu: "_MENU_",
                 search: "_INPUT_",
@@ -110,7 +110,7 @@
             columnDefs: [{orderable: false, targets: [-1]}],
             @endif
         });
-        $("#organization-add-form").validate({});
+        $("#relation-add-form").validate({});
     });
 </script>
 @endpush

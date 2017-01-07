@@ -37,7 +37,7 @@
 					@la_input($module, 'first_name')
 					@la_input($module, 'last_name')
 					@la_input($module, 'title')
-					@la_input($module, 'organization')
+					@la_input($module, 'relation_id')
 					@la_input($module, 'phone_primary')
 					@la_input($module, 'email')
 					@la_input($module, 'lead_source')

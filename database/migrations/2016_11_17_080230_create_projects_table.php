@@ -92,8 +92,8 @@ class CreateProjectsTable extends Migration
                 "listing_col" => false,
                 "popup_vals" => "@industry_types",
             ], [
-                "colname" => "organization",
-                "label" => "Organization",
+                "colname" => "relation",
+                "label" => "Relation",
                 "field_type" => "Dropdown",
                 "unique" => false,
                 "defaultvalue" => "",
@@ -101,7 +101,7 @@ class CreateProjectsTable extends Migration
                 "maxlength" => 0,
                 "required" => false,
                 "listing_col" => true,
-                "popup_vals" => "@organizations",
+                "popup_vals" => "@relations",
             ], [
                 "colname" => "target_budget",
                 "label" => "Target Budget",

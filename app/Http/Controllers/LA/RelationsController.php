@@ -20,25 +20,25 @@ use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
-use App\Models\Organization;
+use App\Models\Relation;
 
-class OrganizationsController extends Controller
+class RelationsController extends Controller
 {
     public $show_action = true;
 
     /**
-     * Display a listing of the Organizations.
+     * Display a listing of the Relations.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $module = Module::get('Organizations');
+        $module = Module::get('Relations');
 
         if (Module::hasAccess($module->id)) {
-            return View('la.organizations.index', [
+            return View('la.relations.index', [
                 'show_actions' => $this->show_action,
-                'listing_cols' => Module::getListingColumns('Organizations'),
+                'listing_cols' => Module::getListingColumns('Relations'),
                 'module' => $module
             ]);
         } else {
@@ -47,7 +47,7 @@ class OrganizationsController extends Controller
     }
 
     /**
-     * Show the form for creating a new organization.
+     * Show the form for creating a new relation.
      *
      * @return \Illuminate\Http\Response
      */
@@ -57,16 +57,16 @@ class OrganizationsController extends Controller
     }
 
     /**
-     * Store a newly created organization in database.
+     * Store a newly created relation in database.
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        if (Module::hasAccess("Organizations", "create")) {
+        if (Module::hasAccess("Relations", "create")) {
 
-            $rules = Module::validateRules("Organizations", $request);
+            $rules = Module::validateRules("Relations", $request);
 
             $validator = Validator::make($request->all(), $rules);
 
@@ -74,9 +74,9 @@ class OrganizationsController extends Controller
                 return redirect()->back()->withErrors($validator)->withInput();
             }
 
-            $insert_id = Module::insert("Organizations", $request);
+            $insert_id = Module::insert("Relations", $request);
 
-            return redirect()->route(config('laraadmin.adminRoute') . '.organizations.index');
+            return redirect()->route(config('laraadmin.adminRoute') . '.relations.index');
 
         } else {
             return redirect(config('laraadmin.adminRoute') . "/");
@@ -84,30 +84,30 @@ class OrganizationsController extends Controller
     }
 
     /**
-     * Display the specified organization.
+     * Display the specified relation.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        if (Module::hasAccess("Organizations", "view")) {
+        if (Module::hasAccess("Relations", "view")) {
 
-            $organization = Organization::find($id);
-            if (isset($organization->id)) {
-                $module = Module::get('Organizations');
-                $module->row = $organization;
+            $relation = Relation::find($id);
+            if (isset($relation->id)) {
+                $module = Module::get('Relations');
+                $module->row = $relation;
 
-                return view('la.organizations.show', [
+                return view('la.relations.show', [
                     'module' => $module,
                     'view_col' => $module->view_col,
                     'no_header' => true,
                     'no_padding' => "no-padding"
-                ])->with('organization', $organization);
+                ])->with('relation', $relation);
             } else {
                 return view('errors.404', [
                     'record_id' => $id,
-                    'record_name' => ucfirst("organization"),
+                    'record_name' => ucfirst("relation"),
                 ]);
             }
         } else {
@@ -116,28 +116,28 @@ class OrganizationsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified organization.
+     * Show the form for editing the specified relation.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        if (Module::hasAccess("Organizations", "edit")) {
-            $organization = Organization::find($id);
-            if (isset($organization->id)) {
-                $module = Module::get('Organizations');
+        if (Module::hasAccess("Relations", "edit")) {
+            $relation = Relation::find($id);
+            if (isset($relation->id)) {
+                $module = Module::get('Relations');
 
-                $module->row = $organization;
+                $module->row = $relation;
 
-                return view('la.organizations.edit', [
+                return view('la.relations.edit', [
                     'module' => $module,
                     'view_col' => $module->view_col,
-                ])->with('organization', $organization);
+                ])->with('relation', $relation);
             } else {
                 return view('errors.404', [
                     'record_id' => $id,
-                    'record_name' => ucfirst("organization"),
+                    'record_name' => ucfirst("relation"),
                 ]);
             }
         } else {
@@ -146,7 +146,7 @@ class OrganizationsController extends Controller
     }
 
     /**
-     * Update the specified organization in storage.
+     * Update the specified relation in storage.
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
@@ -154,9 +154,9 @@ class OrganizationsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (Module::hasAccess("Organizations", "edit")) {
+        if (Module::hasAccess("Relations", "edit")) {
 
-            $rules = Module::validateRules("Organizations", $request, true);
+            $rules = Module::validateRules("Relations", $request, true);
 
             $validator = Validator::make($request->all(), $rules);
 
@@ -164,9 +164,9 @@ class OrganizationsController extends Controller
                 return redirect()->back()->withErrors($validator)->withInput();;
             }
 
-            $insert_id = Module::updateRow("Organizations", $request, $id);
+            $insert_id = Module::updateRow("Relations", $request, $id);
 
-            return redirect()->route(config('laraadmin.adminRoute') . '.organizations.index');
+            return redirect()->route(config('laraadmin.adminRoute') . '.relations.index');
 
         } else {
             return redirect(config('laraadmin.adminRoute') . "/");
@@ -174,18 +174,18 @@ class OrganizationsController extends Controller
     }
 
     /**
-     * Remove the specified organization from storage.
+     * Remove the specified relation from storage.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        if (Module::hasAccess("Organizations", "delete")) {
-            Organization::find($id)->delete();
+        if (Module::hasAccess("Relations", "delete")) {
+            Relation::find($id)->delete();
 
             // Redirecting to index() method
-            return redirect()->route(config('laraadmin.adminRoute') . '.organizations.index');
+            return redirect()->route(config('laraadmin.adminRoute') . '.relations.index');
         } else {
             return redirect(config('laraadmin.adminRoute') . "/");
         }
@@ -198,14 +198,14 @@ class OrganizationsController extends Controller
      */
     public function dtajax(Request $request)
     {
-        $module = Module::get('Organizations');
-        $listing_cols = Module::getListingColumns('Organizations');
+        $module = Module::get('Relations');
+        $listing_cols = Module::getListingColumns('Relations');
 
-        $values = DB::table('organizations')->select($listing_cols)->whereNull('deleted_at');
+        $values = DB::table('relations')->select($listing_cols)->whereNull('deleted_at');
         $out = Datatables::of($values)->make();
         $data = $out->getData();
 
-        $fields_popup = ModuleFields::getModuleFields('Organizations');
+        $fields_popup = ModuleFields::getModuleFields('Relations');
 
         for ($i = 0; $i < count($data->data); $i++) {
             for ($j = 0; $j < count($listing_cols); $j++) {
@@ -226,7 +226,7 @@ class OrganizationsController extends Controller
                     $data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
                 }
                 if ($col == $module->view_col) {
-                    $data->data[$i][$j] = '<a href="' . url(config('laraadmin.adminRoute') . '/organizations/' . $data->data[$i][0]) . '">' . $data->data[$i][$j] . '</a>';
+                    $data->data[$i][$j] = '<a href="' . url(config('laraadmin.adminRoute') . '/relations/' . $data->data[$i][0]) . '">' . $data->data[$i][$j] . '</a>';
                 }
                 // else if($col == "author") {
                 //    $data->data[$i][$j];
@@ -235,12 +235,12 @@ class OrganizationsController extends Controller
 
             if ($this->show_action) {
                 $output = '';
-                if (Module::hasAccess("Organizations", "edit")) {
-                    $output .= '<a href="' . url(config('laraadmin.adminRoute') . '/organizations/' . $data->data[$i][0] . '/edit') . '" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
+                if (Module::hasAccess("Relations", "edit")) {
+                    $output .= '<a href="' . url(config('laraadmin.adminRoute') . '/relations/' . $data->data[$i][0] . '/edit') . '" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
                 }
 
-                if (Module::hasAccess("Organizations", "delete")) {
-                    $output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.organizations.destroy', $data->data[$i][0]], 'method' => 'delete', 'style' => 'display:inline']);
+                if (Module::hasAccess("Relations", "delete")) {
+                    $output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.relations.destroy', $data->data[$i][0]], 'method' => 'delete', 'style' => 'display:inline']);
                     $output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
                     $output .= Form::close();
                 }

@@ -32,8 +32,8 @@ class CreateTicketsTable extends Migration
                 "required" => true,
                 "listing_col" => true
             ], [
-                "colname" => "organization",
-                "label" => "Organization",
+                "colname" => "relation",
+                "label" => "Relation",
                 "field_type" => "Dropdown",
                 "unique" => false,
                 "defaultvalue" => "",
@@ -41,7 +41,7 @@ class CreateTicketsTable extends Migration
                 "maxlength" => 0,
                 "required" => false,
                 "listing_col" => true,
-                "popup_vals" => "@organizations",
+                "popup_vals" => "@relations",
             ], [
                 "colname" => "contact",
                 "label" => "Contact",

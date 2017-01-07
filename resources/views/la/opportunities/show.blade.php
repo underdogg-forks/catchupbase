@@ -119,7 +119,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-6">@la_display($module, 'name')</div>
-                                <div class="col-md-6">@la_display($module, 'organization')</div>
+                                <div class="col-md-6">@la_display($module, 'relation_id')</div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">@la_display($module, 'contact')</div>
